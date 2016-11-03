@@ -1,0 +1,15 @@
+<div class="activity-row" [class.active]="isActive">
+  <div class="activity-desc">
+    <h5>{{location.name}}</h5>
+    <p>{{location.description}}</p>
+    <h6>Tel:{{location.phone}}</h6>
+  </div>
+  <div class="activity-img">
+    <ul>
+      <li *ngFor="let img of location.images">
+        <img src={{img.url}} alt=""/>
+      </li>
+    </ul>
+  </div>
+  <div class="clear"></div>
+</div>

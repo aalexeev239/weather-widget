@@ -1,0 +1,34 @@
+<h1>Hot Weather Widget</h1>
+<div class="element">
+  <div class="element-left">
+    <div class="element-bg-img"><img src="assets/images/1.jpg" alt="" class="img-responsive"></div>
+    <div class="element-left-bottom">
+      <div class="ele-strip">
+        <ul>
+          <li><a href="#">Hotel</a></li>
+          <li><a href="#">Fishing</a></li>
+          <li><a href="#">Tours</a></li>
+          <li class="anc-bor"><a href="#">Weather</a></li>
+        </ul>
+      </div>
+      <div class="village">
+        <h3>Hotels</h3>
+        <span class="line"> </span>
+        <div class="activity_box">
+          <div class="scrollbar" id="style-2">
+            <wea-location
+              *ngFor="let location of locations"
+              [location]="location"
+              (click)="selectLocation(location)"
+              [isActive]="currentLocation === location"></wea-location>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="element-right" *ngIf="currentLocation">
+    <wea-temperatur [location]="currentLocation"></wea-temperatur>
+    <wea-teddy-bear [location]="currentLocation"></wea-teddy-bear>
+  </div>
+  <div class="clear"></div>
+</div>

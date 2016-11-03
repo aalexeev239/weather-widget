@@ -1,0 +1,26 @@
+.temperatur h5 {
+  color: #fff;
+  font-size: 1em;
+}
+
+.temperatur h2 {
+  color: #fff;
+  font-size: 3.2em;
+  display: inline-block;
+  vertical-align: top;
+  font-family: 'Roboto', sans-serif;
+}
+
+.temperatur h6 {
+  font-size: 1em;
+  color: #fff;
+  margin: 1em 0em 0em 0em;
+}
+
+.temperatur {
+  background: #5fb3f9;
+  text-align: center;
+  padding: 1em 1em;
+  border-radius: 5px;
+  margin-bottom: 2.5em;
+}
