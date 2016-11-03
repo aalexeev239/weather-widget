@@ -8,6 +8,7 @@ import {WeatherWidgetComponent} from './weather-widget/weather-widget.component'
 import {LocationComponent} from './location/location.component';
 import {TemperaturComponent} from './temperatur/temperatur.component';
 import {TeddyBearComponent} from './teddy-bear/teddy-bear.component';
+import { RatingPipe } from './shared/pipes/rating.pipe';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {TeddyBearComponent} from './teddy-bear/teddy-bear.component';
     WeatherWidgetComponent,
     LocationComponent,
     TemperaturComponent,
-    TeddyBearComponent
+    TeddyBearComponent,
+    RatingPipe
   ],
   imports: [
     BrowserModule,

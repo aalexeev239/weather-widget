@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Location} from '../shared/interfaces/location';
 
 @Component({
@@ -6,7 +6,7 @@ import {Location} from '../shared/interfaces/location';
   templateUrl: './location.component.html',
   styleUrls: ['./location.component.css']
 })
-export class LocationComponent implements OnInit {
+export class LocationComponent {
 
   constructor() {
   }
@@ -17,9 +17,4 @@ export class LocationComponent implements OnInit {
 
   @Input()
   public isActive: boolean;
-
-  ngOnInit() {
-
-  }
-
 }
