@@ -29,7 +29,6 @@ export class WeatherWidgetComponent {
       value: 0
     }
   ];
-
   
   public currentRating: number = 0;
 
