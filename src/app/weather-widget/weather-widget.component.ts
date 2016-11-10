@@ -42,6 +42,7 @@ export class WeatherWidgetComponent {
 
   public selectLocation(location: Location): void {
     this.currentLocation = location;
+    debugger
   }
 
   public setRating(value: number): void {
