@@ -88,7 +88,7 @@ export class LocationsService {
 
   public locations: Observable<Location> = Observable.from(this._locations);
 
-  public setCurrentLocation(location:Location) {
+  public setCurrentLocation(location: Location) {
     this.currentLocation.next(location);
   };
 }

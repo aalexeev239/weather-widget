@@ -29,9 +29,19 @@
       </div>
     </div>
   </div>
-  <div class="element-right" *ngIf="currentLocation">
-    <wea-temperatur [location]="currentLocation"></wea-temperatur>
-    <wea-teddy-bear [location]="currentLocation"></wea-teddy-bear>
+  <!--<div class="element-right" *ngIf="currentLocation">-->
+  <!--<wea-temperatur [location]="currentLocation"></wea-temperatur>-->
+  <!--<wea-teddy-bear [location]="currentLocation"></wea-teddy-bear>-->
+  <!--</div>-->
+
+  <div class="element-right" *ngIf="currentLocationAf | async">
+    <wea-temperatur [location]="currentLocationAf | async"></wea-temperatur>
+    <wea-teddy-bear [location]="currentLocationAf | async"></wea-teddy-bear>
   </div>
   <div class="clear"></div>
 </div>
+<wea-location
+  *ngFor="let location of locations | rating:currentRating"
+  [location]="location"
+  (click)="selectLocation(location)"
+  [isActive]="currentLocation === location"></wea-location>
