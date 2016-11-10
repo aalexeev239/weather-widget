@@ -41,8 +41,3 @@
   </div>
   <div class="clear"></div>
 </div>
-<wea-location
-  *ngFor="let location of locations | rating:currentRating"
-  [location]="location"
-  (click)="selectLocation(location)"
-  [isActive]="currentLocation === location"></wea-location>
