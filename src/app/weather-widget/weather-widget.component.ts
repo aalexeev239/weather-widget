@@ -10,8 +10,8 @@ import {Location} from '../shared/interfaces/location';
   providers: [LocationsService]
 })
 export class WeatherWidgetComponent {
-  public locations: Location[];
-  public filteredLocations: Location[];
+  public locations: Location[] = [];
+
 
   public currentLocation: Location;
 
@@ -29,20 +29,29 @@ export class WeatherWidgetComponent {
       value: 0
     }
   ];
-  
+
   public currentRating: number = 0;
 
-  constructor(private _service: LocationsService) {
-    this.locations = this._service.getLocations();
+  private _locationService: LocationsService;
 
-    if (this.locations.length) {
-      this.currentLocation = this.locations[0];
-    }
+  constructor(_locationService: LocationsService) {
+    this._locationService = _locationService;
+
+    this._locationService.locations.subscribe((location)=> {
+      if (!this.locations.length) {
+        this._locationService.setCurrentLocation(location);
+      }
+
+      this.locations.push(location);
+    });
+
+    this._locationService.currentLocation.subscribe((location)=> {
+      this.currentLocation = location;
+    });
   }
 
   public selectLocation(location: Location): void {
-    this.currentLocation = location;
-    debugger
+    this._locationService.setCurrentLocation(location);
   }
 
   public setRating(value: number): void {
@@ -51,6 +60,6 @@ export class WeatherWidgetComponent {
     }
 
     this.currentRating = value;
-    this.currentLocation = null;
+    this._locationService.setCurrentLocation(null);
   }
 }

@@ -1,11 +1,15 @@
 import {Injectable} from '@angular/core';
 import {Location} from '../interfaces/location';
 
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/from';
+import {ReplaySubject} from 'rxjs/ReplaySubject';
+
+
 @Injectable()
 export class LocationsService {
 
-  constructor() {
-  }
+  public currentLocation: ReplaySubject<Location> = new ReplaySubject();
 
   private _locations: Location[] = [
     {
@@ -82,7 +86,9 @@ export class LocationsService {
     }
   ];
 
-  public getLocations(): Location[] {
-    return this._locations;
-  }
+  public locations: Observable<Location> = Observable.from(this._locations);
+
+  public setCurrentLocation(location:Location) {
+    this.currentLocation.next(location);
+  };
 }
