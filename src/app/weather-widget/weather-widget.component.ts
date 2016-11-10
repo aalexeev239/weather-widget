@@ -30,7 +30,6 @@ export class WeatherWidgetComponent {
     }
   ];
 
-
   public currentRating: number = 0;
 
   constructor(private _service: LocationsService) {
